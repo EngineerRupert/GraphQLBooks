@@ -1,19 +1,19 @@
 schema {
-query: Query
+    query: Query
 }
 
 type Author {
-authorId: ID!,
-name: String,
-book: Book
+    authorId: ID!,
+    name: String,
 }
 
 type Book {
-bookId: ID!,
-title: String,
-authors: [Author]
+    bookId: ID!,
+    title: String,
+    authors: [Author]
 }
 
 type Query {
-getAllBooks: [Book]
+    getAllBooks: [Book],
+    getBooksByAuthor(name:String): [Book]
 }

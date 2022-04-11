@@ -18,4 +18,8 @@ public class BookService implements GraphQLQueryResolver {
         return bookRepository.findAll();
     }
 
+    public List<Book> getBooksByAuthor(String authorName) {
+        return bookRepository.getBookByAuthor(authorName);
+    }
+
 }
