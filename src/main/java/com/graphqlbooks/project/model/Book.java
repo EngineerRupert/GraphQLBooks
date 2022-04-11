@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Component
 @Entity
-@Table(name = "BOOK")
+@Table(name = "book")
 public class Book {
 
     @Id
@@ -19,6 +19,7 @@ public class Book {
     private String title;
 
     @OneToMany
+    @JoinColumn(name = "book_id")
     private List<Author> authors;
 
     public Book() {
