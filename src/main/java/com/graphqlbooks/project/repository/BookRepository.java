@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
-    @Query("from Book b, Author a where a.name = :name")
-    List<Book> getBookByAuthor(@Param("name") String authorName);
+    @Query("from Book b, Author a where a.authorId = :id")
+    List<Book> findBooksByAuthorId(@Param("id") Integer id);
 
 }
