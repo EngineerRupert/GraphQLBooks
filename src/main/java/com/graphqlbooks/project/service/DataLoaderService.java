@@ -20,13 +20,29 @@ public class DataLoaderService {
 
     @PostConstruct
     public void loadData() {
-        Author author1 = new Author("Демидова М. Д.");
+        Book book1 = new Book();
+        book1.setTitle("Чудесная книга");
+        bookRepository.save(book1);
+
+        Book book2 = new Book();
+        book2.setTitle("Эхо звёздного мира");
+        bookRepository.save(book2);
+
+        Author author1 = new Author();
+        author1.setName("Демидова М. Д.");
+        author1.setBooks(List.of(book2));
         authorRepository.save(author1);
-        Author author2 = new Author("Кольцов Ф. Н.");
+
+        Author author2 = new Author();
+        author2.setName("Кольцов Ф. Н.");
+        author2.setBooks(List.of(book2));
         authorRepository.save(author2);
-        Book book = new Book("Эхо звёздного мира");
-        book.setAuthors(List.of(author1, author2));
-        bookRepository.save(book);
+
+        book1.setAuthors(List.of(author1));
+        bookRepository.save(book1);
+
+        book2.setAuthors(List.of(author1, author2));
+        bookRepository.save(book2);
     }
 
 }
