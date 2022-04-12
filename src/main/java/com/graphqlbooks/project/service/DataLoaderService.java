@@ -6,6 +6,7 @@ import com.graphqlbooks.project.repository.AuthorRepository;
 import com.graphqlbooks.project.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -19,6 +20,7 @@ public class DataLoaderService {
     private AuthorRepository authorRepository;
 
     @PostConstruct
+    @Transactional
     public void loadData() {
         Book book1 = new Book();
         book1.setTitle("Чудесная книга");
