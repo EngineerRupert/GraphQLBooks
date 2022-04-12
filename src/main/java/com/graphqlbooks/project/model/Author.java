@@ -1,13 +1,18 @@
 package com.graphqlbooks.project.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.List;
 
 @Component
 @Entity
-@Table(name = "author")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Author {
 
     @Id
@@ -17,34 +22,7 @@ public class Author {
     @Column
     private String name;
 
-    public Author() {
-    }
+    @ManyToMany
+    private List<Book> books;
 
-    public Author(String name) {
-        this.name = name;
-    }
-
-    public Integer getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Integer authorId) {
-        this.authorId = authorId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "authorId=" + authorId +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }
