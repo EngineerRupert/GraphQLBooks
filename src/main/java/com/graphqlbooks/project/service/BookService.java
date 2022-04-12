@@ -1,7 +1,6 @@
 package com.graphqlbooks.project.service;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.graphqlbooks.project.model.Author;
 import com.graphqlbooks.project.model.Book;
 import com.graphqlbooks.project.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
